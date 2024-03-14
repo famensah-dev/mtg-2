@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCampaignRequest;
 use App\Models\Campaign;
+use App\Models\Location;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -17,7 +19,12 @@ class CampaignController extends Controller
     
     public function create()
     {
-        //
+        $locations = Location::all();
+        $tenants = Tenant::all();
+        return view('campaigns.create', [
+            "locations" => $locations,
+            "tenants" => $tenants
+        ]);
     }
     
     public function store(StoreCampaignRequest $request)
