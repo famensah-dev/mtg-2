@@ -23,6 +23,7 @@ class StoreServiceAreaRequest extends FormRequest
     {
         return [
             "name" => "required|string|unique:service_areas,name",
-            "slug" => "string"        ];
+            "slug" => "string"      
+        ];
     }
 }

@@ -14,14 +14,15 @@ class CampaignController extends Controller
     public function index()
     {
         $campaigns = Campaign::all();
-        dd($campaigns);
+        return view('campaigns.index', ['campaigns' => $campaigns]);
     }
     
     public function create()
     {
         $locations = Location::all();
         $tenants = Tenant::all();
-        return view('campaigns.create', [
+        return view('campaigns.create',
+        [
             "locations" => $locations,
             "tenants" => $tenants
         ]);
@@ -51,6 +52,7 @@ class CampaignController extends Controller
     
     public function destroy(string $id)
     {
-        //
+        Campaign::destroy($id);
+        return back()->with(['message'=>'Campaign deleted successfully']);
     }
 }

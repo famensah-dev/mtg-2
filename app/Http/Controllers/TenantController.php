@@ -18,4 +18,14 @@ class TenantController extends Controller
         $tenant = Tenant::create($request->all());
         dd($tenant);
     }
+
+    public function register ()
+    {
+        
+    }
+
+    public function login ()
+    {
+
+    }
 }
